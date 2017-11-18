@@ -1,3 +1,4 @@
+const SAVE_PRODUCT_KEY = "products";
 
 function BuyList(config){
 	this.container;
@@ -17,6 +18,7 @@ BuyList.prototype.createContainer=function(){
 
 BuyList.prototype.initialize=function(config){
 	this.createContainer();
+	window.addEventListener("beforeunload",this.save.bind(this),true);
 }
 
 BuyList.prototype.getProductByName=function(name){
@@ -131,11 +133,11 @@ BuyList.prototype.save=function(){
 	this.productList.forEach(
 		(product)=>data.push(product.getSaveData())
 		)
-	save(data,"products");
+	save(data,SAVE_PRODUCT_KEY);
 }
 
 BuyList.prototype.load=function(){
-	data=load("products");
+	data=load(SAVE_PRODUCT_KEY);
 	if(data)
 		data.forEach(
 			(config)=>this.addItem(config)

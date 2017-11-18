@@ -150,7 +150,7 @@ Product.prototype.getElement=function(){
 Product.prototype.getSaveData=function(){
 	var data={
 		name:this.getName(),
-		measurement:this.getMeasurement(),
+		measure:this.getMeasure(),
 		count:this.getCount(),
 		color:this.getColor()
 	}

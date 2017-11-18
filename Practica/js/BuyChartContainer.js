@@ -96,7 +96,6 @@ BuyChartContainer.prototype.initialize=function(config){
 	var rootAnchor = document.getElementById(ROOT_NODE_ID);
 	rootAnchor.appendChild(this.container);
 
-	this.container.addEventListener("beforeunload",this.buyList.save.bind(this.buyList),true);
 	this.buyList.load();
 }
 

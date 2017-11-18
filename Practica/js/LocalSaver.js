@@ -39,7 +39,14 @@ function loadCookie(id){
 
 //Si existe LocalStorage
 function existLocalStorage(){
-	return window.localStorage;
+	var exists=undefined;
+	try{
+		window.localStorage;
+		exists=true;
+	}catch(e){
+		exists=false;
+	}
+	return exists;
 }
 
 
@@ -72,6 +79,6 @@ function load(id){
 	if(existLocalStorage()){
 		return loadObjectLocalStorage(id);
 	}else{
-		loadCookie(id);
+		return loadCookie(id);
 	}
 }
