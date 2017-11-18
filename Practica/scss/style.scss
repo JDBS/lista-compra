@@ -1,0 +1,109 @@
+
+//FONTFACE http://glyphicons.com/fonts/glyphicons-regular.eot
+//Buychart Logo \E203 
+//Check \E153
+//Uncheck \E154
+//Remove \E208
+//Refresh \E082
+//Add \E433
+/*
+@font-face{
+	font-family:'glyph-icons';
+	src:url('http://glyphicons.com/fonts/glyphicons-regular.eot');
+	src:url('http://glyphicons.com/fonts/glyphicons-regular.eot?#iefix') format('embedded-opentype'),url('http://glyphicons.com/fonts/glyphicons-regular.woff2') format('woff2'),url('http://glyphicons.com/fonts/glyphicons-regular.woff') format('woff'),url('http://glyphicons.com/fonts/glyphicons-regular.ttf') format('truetype'),url('http://glyphicons.com/fonts/glyphicons-regular.svg#glyphiconsregular') format('svg')
+	//src:url('../fonts/glyphicons-regular.eot?#iefix') format('embedded-opentype'),url('../fonts/glyphicons-regular.woff2') format('woff2'),url('../fonts/glyphicons-regular.woff') format('woff'),url('../fonts/glyphicons-regular.ttf') format('truetype'),url('../fonts/glyphicons-regular.svg#glyphiconsregular') format('svg')
+}
+*/
+@font-face{
+	font-family:'glyph-icons';
+	//src: url('http://glyphicons.com/fonts/glyphicons-regular.eot');
+	src: url('glyphicons-regular.eot');
+	src: url('glyphicons-regular.woff') format('woff')
+}
+
+%glyph-icon{
+	font-family:'glyph-icons';
+}
+%glyph-icon-before{
+	text-shadow: 0px 0px 3px white;
+}
+
+#chart-container .check-icon, 
+#chart-container .uncheck-icon, 
+#chart-container .refresh-icon, 
+#chart-container .remove-icon, 
+#chart-container .add-icon, 
+#chart-container .chart-logo{
+	@extend %glyph-icon;
+}
+
+#chart-container .check-icon:before{
+	content:"\E153";
+	@extend %glyph-icon-before;
+}
+
+#chart-container .uncheck-icon:before{
+	content:"\E154";
+	@extend %glyph-icon-before;
+}
+
+#chart-container .refresh-icon:before{
+	content:"\E082";
+	@extend %glyph-icon-before;
+}
+
+#chart-container .remove-icon:before{
+	content:"\E208";
+	@extend %glyph-icon-before;
+}
+
+#chart-container .add-icon:before{
+	content:"\E433";
+	@extend %glyph-icon-before;
+}
+
+#chart-container .chart-logo:before{
+	content:"\E203";
+	@extend %glyph-icon-before;
+}
+
+#chart-container .chart-logo{
+	font-size:48px;
+	@extend %glyph-icon-before;
+}
+
+#chart-container{
+	border-style:solid;
+	border-radius:8px;
+	padding:15px;
+}
+
+#chart-container .buy-chart{
+	border:solid 1px lightgray;
+	border-radius:4px;
+	margin-top: 10px;
+	overflow:hidden;
+}
+
+#chart-container .product{
+	border-top:solid 1px lightgray;
+	border-bottom:solid 1px lightgray;
+}
+
+#chart-container{
+	background-color:#f1f1f1;
+	box-shadow: 5px 5px 5px darkgray;
+}
+
+#chart-container h1{
+	text-shadow: 0px 0px 5px white;
+}
+#chart-container input{
+	border-radius:4px;
+}
+
+#chart-container .product p{
+	display:inline-block;
+	min-width:40px;
+	text-align:center;
+}
