@@ -66,12 +66,21 @@ BuyList.prototype.addItem=function(config){
 		count+=parseInt(config.count);
 		product.setCount(count);
 	}else{
-		product = new Product({
-			name:config.name,
-			measure:config.measure,
-			count:config.count,
-			color:config.color
-		});
+		if(config.count>1){
+			product = new Product({
+				name:config.name,
+				measure:this.getPlural(config.measure),
+				count:config.count,
+				color:config.color
+			});
+		}else{
+			product = new Product({
+				name:config.name,
+				measure:config.measure,
+				count:config.count,
+				color:config.color
+			});
+		}
 		if(product){
 			this.productList.push(product);
 			this.container.appendChild(product.getElement());

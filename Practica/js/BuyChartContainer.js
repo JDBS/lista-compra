@@ -107,6 +107,8 @@ BuyChartContainer.prototype.addItemEvent=function(event){
 	var count = this.productsInput.getProductQuantity();
 	var color = this.categoryInput.getFirstColor();
 
+	if(!measure)
+		measure="ud";
 	if(name && measure && count && color)
 		this.buyList.addItem({name,measure,count,color}); //text:text, count:count, color:color
 }
