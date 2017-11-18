@@ -1,4 +1,5 @@
 const SAVE_COLOR_KEY="colorInput";
+const MAX_COLORS=7;
 
 
 function CategoryInput(config){
@@ -42,7 +43,6 @@ CategoryInput.prototype.createAddColorButton=function(){
 }
 
 CategoryInput.prototype.addNewColor=function(){
-	const MAX_COLORS=8;
 	if(this.colorInputList.length<MAX_COLORS){
 		var colorInput = this.createColorInput();
 
