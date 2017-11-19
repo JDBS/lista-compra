@@ -115,29 +115,6 @@ CategoryInput.prototype.createColorInput=function(){
 	return inputContainer;
 }
 
-CategoryInput.prototype.createCustomColorInput=function(color){
-	const INPUT_WIDTH="22px";
-	const INPUT_HEIGHT="22px";
-
-	var input = document.createElement("input");
-	input.setAttribute("type","color");
-	input.setAttribute("disabled","disabled");
-	input.value=color;
-
-	input.style.width=INPUT_WIDTH;
-	input.style.height=INPUT_HEIGHT;
-
-	var inputContainer = document.createElement("div");
-	inputContainer.appendChild(input);
-	inputContainer.style.display="inline-block";
-
-	if(this.colorSetEvent)
-		inputContainer.addEventListener("click",this.colorSetEvent, true);
-
-	this.colorInputList.push(input);
-
-	return inputContainer;
-}
 
 
 CategoryInput.prototype.createContainer=function(){
@@ -167,6 +144,20 @@ CategoryInput.prototype.build=function(config){
 CategoryInput.prototype.initialize=function(config){
 	this.colorSetEvent=config.setColor || undefined;
 	this.build(config);
+}
+
+CategoryInput.prototype.setColors=function(colorArray){
+	if(colorArray.length>MAX_COLORS)	//Si hay más colores de los permitidos
+		return							//No hace nada
+
+	while(this.colorInputList.length<colorArray.length){
+		let colorInput = this.createColorInput();
+		this.container.appendChild(colorInput);
+	}
+
+	for(var i = 0; i<colorArray.length; i++){
+		this.colorInputList[i].value=colorArray[i];
+	}
 }
 
 CategoryInput.prototype.getFirstColor=function(){

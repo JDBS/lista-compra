@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'glyph-icons';
-  src: url("glyphicons-regular.eot");
-  src: url("glyphicons-regular.woff") format("woff"); }
+  src: url("../fonts/glyphicons-regular.eot");
+  src: url("../fonts/glyphicons-regular.woff") format("woff"); }
 #chart-container .check-icon,
 #chart-container .uncheck-icon,
 #chart-container .refresh-icon,

@@ -1,0 +1,124 @@
+﻿Funcionalidades Adicionales de la práctica:
+
+  Cuando se añade un mismo elemento con una misma medida
+este reconoce que ya existe y aumenta la cantidad (si es
+necesario cambia la medida de singular a plural).
+
+  Permite añadir hasta 7 colores distintos.
+
+  Los colores añadidos son siempre colores claros que
+contrastan bien con el color de la fuente.
+
+  Si se añade un producto sin unidad de medida, este se
+añadirá como "ud" (unidad).
+
+La estructura del código javascript es la siguiente:
+
+-El código se compone de varios contenedores principales
+(uno por fichero JS excepto loader y Config):
+-Cada contenedor corresponde con un tipo de objeto.
+-Cada contenedor posee la siguiente estructura:
+	-Definición de atributos (function Nombre(){atributos..})
+	-Definición de métodos de generación de contenido
+		-Crean elementos que componen el interior del contenedor
+		estos elementos pueden ser:
+			-Elementos html (div, p...)
+			-Otros contenedores u objetos contenedores.
+	-Definición de los métodos build e initialize
+		-build: llama a los métodos de generación de contenido
+		y ensambla los elementos generados al contenedor principal.
+		-initialize: llama a build y hace otras operaciones de
+		inicialización y configuración (parecido a un constructor)
+		-métodos funcionales, sets y gets
+		-método getElement() devuelve el elemento principal del objeto,
+		es decir, el contenedor html (normalmente un div).
+
+
+Mapa Estructural (Qué contiene que y en que orden):
+
+BuyChartContainer
+	+ProductsInput
+	+CategoryInput
+	+BuyList
+		+Products
+
+
+Funcionalidad de la Práctica:
+
+#generación (métodos build, initialize, load, save y otros)
+-loader carga los scripts dinámicamente y genera un BuyChartContainer.
+-BuyChartContainer crea y se añade un Products Input,
+un CategoryInput y un BuyList
+	-BuyList pregunta si hay datos almacenados en local
+		-Si los hay los carga y los añade como productos
+		-También añade los colores ya usados a la paleta de colores
+
+#Acción Añadir producto:
+-Se produce un evento click en el botón añadir (ProductsInput).
+	-Este posee una referencia al método addItemEvent() de
+	BuyChartContainer
+	-BuyChartContainer (parent) comprueba que la información
+	de los inputs es correcta.
+	-Una vez hechas las comprobaciones le dice al BuyList que
+	añada un objeto con la configuración basada en dicha 
+	información.
+	-BuyList crea y se añade un nuevo producto.
+		-Si existe un producto con mismo nombre y medida lo suma.
+			-Si además la cantidad era 1 y la medida singular le añade
+			una s.
+
+#Acción Eliminar producto:
+-Se produce un evento click en el botón añadir (ProductsInput).
+	-Este posee una referencia al método removeItemEvent() de
+	BuyChartContainer
+	-BuyChartContainer le pregunta a BuyList que elementos están
+	marcados (Obtiene una lista).
+	-BuyChartContainer le dice a BuyList que elimine los productos
+	de esa lista.
+
+#Borrado de un producto:
+-Los productos tienen un método (delete) que borra todos los elementos
+hijos.
+
+#Acción Reordenar:
+-Se produce un evento click en el botón reordenar (CategoryInput).
+	-Este posee una referencia al método reorderColorEvent() de
+	BuyChartContainer
+	-BuyChartContainer le dice a BuyList que se ordene mediante el
+	método colorSort.
+	-BuyList obtiene los hijos del su contenedor
+	(container.childNodes) y los mete en un array.
+	-BuyList reordena ese array y vuelve a hacer los
+	appendChild al contenedor de BuyList en orden.
+
+#Acción cambiar color:
+-Se produce un evento click en un colorInput (CategoryInput).
+	-Este posee una referencia al método setColorEvent() de
+	BuyChartContainer
+	-BuyChartContainer le pregunta a BuyList que elementos están
+	marcados (Obtiene una lista de productos marcados).
+	-Mediante el parámetro event.target (del evento) averigua
+	mediante event.target.value el color hexadecimal seleccionado.
+	-Asigna el color a cada producto de la lista de productos marcados.
+
+#Acción añadir color:
+-Genera un color aleatorio con los métodos de CategoryInput.
+
+#Carga y Guardado:
+-Se usan las funciones "save(object,id)" y "load(id)" de LocalSaver
+
+
+Otras funcionalidades:
+
+-LocalSaver.js
+	-Contiene métodos save y load para guardar de forma local
+	cualquier tipo de datos (localStorage o cookies dependiendo
+	de la compatibilidad)
+
+-loader.js
+
+#Esta práctica está pensada solo para uso docente y como 
+demostración, no se recomienda la publicación de la misma con 
+el uso de los iconos indicados dada la no comprobación 
+de licencias. Los iconos pueden ser cambiados a través del 
+fichero css/style.css o el fichero scss/style.scss

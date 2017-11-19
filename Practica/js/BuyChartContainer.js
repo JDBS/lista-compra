@@ -91,15 +91,19 @@ BuyChartContainer.prototype.build=function(config){
 	container.appendChild(buyList.getElement());
 }
 
+BuyChartContainer.prototype.loadCategoryColors=function(){
+	var colorsArray=this.buyList.getProductColors();
+	this.categoryInput.setColors(colorsArray);
+}
+
 BuyChartContainer.prototype.initialize=function(config){
 	this.build(config);
 	var rootAnchor = document.getElementById(ROOT_NODE_ID);
 	rootAnchor.appendChild(this.container);
 
 	this.buyList.load();
+	this.loadCategoryColors();
 }
-
-
 
 BuyChartContainer.prototype.addItemEvent=function(event){
 	var name = this.productsInput.getProductName();
@@ -149,24 +153,9 @@ BuyChartContainer.prototype.isIntputColor=function(element){
 	return element.matches("input") && element.getAttribute("type") == "color";
 }
 
-BuyChartContainer.prototype.updateColorEvent=function(event){
-}
 
 BuyChartContainer.prototype.reorderColorEvent=function(){
-	var buyListElement = this.buyList.getElement();
-	var childsArray = []; 
-
-	buyListElement.childNodes.forEach(
-		(element)=>childsArray.push(element)
-		);
-
-	childsArray.sort(
-		(element1,element2)=>element1.getAttribute("colorOrder")-element2.getAttribute("colorOrder")
-		);
-
-	childsArray.forEach(
-		(element)=>buyListElement.appendChild(element)
-		);
+	this.buyList.colorSort();
 }
 
 BuyChartContainer.prototype.getElement=function(){

@@ -131,22 +131,66 @@ BuyList.prototype.getElement=function(){
 	return this.container;
 }
 
+BuyList.prototype.getProductColors=function(){
+	var colorArray=[];
+
+	this.productList.forEach(
+			function(product){
+				if(!colorArray.includes(product.getColor()))
+					colorArray.push(product.getColor())
+			}
+		);
+
+	return colorArray;
+}
+
+BuyList.prototype.visualColorSort=function(){
+	//Visual reorder
+	var childsArray = []; 
+
+	this.container.childNodes.forEach(
+		(element)=>childsArray.push(element)
+		);
+
+	childsArray.sort(
+		(element1,element2)=>element1.getAttribute("colorOrder")-element2.getAttribute("colorOrder")
+		);
+
+	childsArray.forEach(
+		(element)=>this.container.appendChild(element)
+		);
+}
+
+BuyList.prototype.inputListColorSort=function(){
+	//List Reorder
+	this.productList.sort(
+		(product1,product2)=>product1.getColorDecimal()-product2.getColorDecimal()
+		);
+}
+
+BuyList.prototype.colorSort=function(){
+	this.visualColorSort();
+	this.inputListColorSort();
+}
+
 BuyList.prototype.delete=function(){
 	this.productList.forEach(
 				(product)=>this.container.removeChild(product.getElement()).delete()
 		);
 }
 
+//Método que guarda los productos
 BuyList.prototype.save=function(){
 	var data=[];
 	this.productList.forEach(
 		(product)=>data.push(product.getSaveData())
 		)
-	save(data,SAVE_PRODUCT_KEY);
+	save(data,SAVE_PRODUCT_KEY); //guarda usando el método del fichero LocalSaver.js
 }
 
+//Método que carga los productos
 BuyList.prototype.load=function(){
-	data=load(SAVE_PRODUCT_KEY);
+	data=load(SAVE_PRODUCT_KEY); //carga usando el método del fichero LocalSaver.js
 	if(data)
 		data.forEach(
 			(config)=>this.addItem(config)
