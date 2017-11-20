@@ -86,10 +86,8 @@ hijos.
 	BuyChartContainer
 	-BuyChartContainer le dice a BuyList que se ordene mediante el
 	método colorSort.
-	-BuyList obtiene los hijos del su contenedor
-	(container.childNodes) y los mete en un array.
-	-BuyList reordena ese array y vuelve a hacer los
-	appendChild al contenedor de BuyList en orden.
+	-BuyList reordena internamente su array de productos y los
+	usa para ordenar visualmente los hijos en el contenedor.
 
 #Acción cambiar color:
 -Se produce un evento click en un colorInput (CategoryInput).

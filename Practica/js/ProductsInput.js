@@ -80,6 +80,8 @@ ProductsInput.prototype.createQuantityInput=function(config){
 	input.setAttribute("type","number");
 	input.setAttribute("placeholder","Cant.");
 	input.setAttribute("min","1");
+	input.setAttribute("max","1000");
+	input.setAttribute("maxlength","4");
 
 	input.style.width="60px";
 	input.style.textAlign="center";
@@ -98,6 +100,7 @@ ProductsInput.prototype.createMeasureInput=function(config){
 	input.setAttribute("type","text");
 	input.setAttribute("size","5");
 	input.setAttribute("placeholder","Ud Medida");
+	input.setAttribute("maxlength","6");
 
 	input.style.textAlign="center";
 
@@ -114,6 +117,7 @@ ProductsInput.prototype.createNameInput=function(config){
 	var input = document.createElement("input");
 	input.setAttribute("type","text");
 	input.setAttribute("placeholder","Producto");
+	input.setAttribute("maxlength","30");
 
 	if(config.add)
 		input.addEventListener("keydown",this.pressEnterEvent.bind(this),true);

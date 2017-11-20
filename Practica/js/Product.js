@@ -10,12 +10,13 @@ function Product(config){
 	this.initialize(config);
 }
 
-Product.prototype.createCheckBox=function(){
+Product.prototype.createCheckBox=function(id){
 
 	var checkBox = document.createElement("input");
 
 	checkBox.setAttribute("type","checkbox");
 	checkBox.style.display="inline-block";
+	checkBox.id=id;
 
 	this.checkBox=checkBox;
 
@@ -65,8 +66,10 @@ Product.prototype.createMeasureText=function(measure){
 
 Product.prototype.createContainer=function(color){
 
-	var container = document.createElement("div");
+	var container = document.createElement("label");
 	container.classList.add("product");
+
+	container.style.display="block";
 
 	this.container = container;
 	this.setColor(color || "");
@@ -75,7 +78,8 @@ Product.prototype.createContainer=function(color){
 }
 
 Product.prototype.build=function(config){
-	var checkBox=this.createCheckBox();
+	var checkBoxId=config.name+config.measure;
+	var checkBox=this.createCheckBox(checkBoxId);
 	var countBox=this.createCount(config.count);
 	var measureText=this.createMeasureText(config.measure);
 	var nameText=this.createNameText(config.name);
@@ -85,6 +89,7 @@ Product.prototype.build=function(config){
 	container.appendChild(countBox);
 	container.appendChild(measureText);
 	container.appendChild(nameText);
+	container.setAttribute("for",checkBoxId);
 }
 
 Product.prototype.initialize=function(config){
@@ -102,7 +107,6 @@ Product.prototype.getColor=function(){
 Product.prototype.setColor=function(color){
 	this.container.style.backgroundColor=color;
 	this.bgColorHex=color;
-	this.container.setAttribute("colorOrder",this.getColorDecimal());
 }
 
 Product.prototype.getColorDecimal=function(){

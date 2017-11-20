@@ -41,15 +41,19 @@ BuyList.prototype.getPlural=function(text){
 
 BuyList.prototype.getSingular=function(text){
 	if(text.slice(-1)=="s")
-		text+=text.slice(0,-1);
+		text=text.slice(0,-1);
 	return text;
 }
 
 BuyList.prototype.addItem=function(config){
+
+	//busca el producto con medidas en singular
 	var product = this.getProductByNameAndMeasure(
-		config.name,config.measure
+		config.name,
+		this.getSingular(config.measure)
 		);
 
+	//busca el producto con medidas en pluiral
 	if(!product)
 		product=this.getProductByNameAndMeasure(
 					config.name,
@@ -144,33 +148,14 @@ BuyList.prototype.getProductColors=function(){
 	return colorArray;
 }
 
-BuyList.prototype.visualColorSort=function(){
-	//Visual reorder
-	var childsArray = []; 
-
-	this.container.childNodes.forEach(
-		(element)=>childsArray.push(element)
-		);
-
-	childsArray.sort(
-		(element1,element2)=>element1.getAttribute("colorOrder")-element2.getAttribute("colorOrder")
-		);
-
-	childsArray.forEach(
-		(element)=>this.container.appendChild(element)
-		);
-}
-
-BuyList.prototype.inputListColorSort=function(){
-	//List Reorder
-	this.productList.sort(
-		(product1,product2)=>product1.getColorDecimal()-product2.getColorDecimal()
-		);
-}
-
 BuyList.prototype.colorSort=function(){
-	this.visualColorSort();
-	this.inputListColorSort();
+	this.productList.sort(
+		(product1,product2)=>product2.getColorDecimal()-product1.getColorDecimal()
+		);
+	
+	this.productList.forEach(
+		(product)=>this.container.appendChild(product.getElement())
+		);
 }
 
 BuyList.prototype.delete=function(){

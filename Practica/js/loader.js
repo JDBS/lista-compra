@@ -11,6 +11,8 @@ const SCRIPTS=[
 
 const PATH="js";
 
+var container=null;
+
 //Crea un script
 async function createScript(src){
 	var script = document.createElement("script");
@@ -29,7 +31,7 @@ function loadScripts(){
 //Ejecuta la aplicación
 function runApp(event){
 	if(event.target.readyState=="complete"){
-		var container = new BuyChartContainer({});
+		container = new BuyChartContainer({});
 		document.removeEventListener("readystatechange",runApp);
 	}
 }
