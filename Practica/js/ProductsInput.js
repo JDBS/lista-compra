@@ -19,12 +19,10 @@ function ProductsInput(config){
 
 ProductsInput.prototype.createCheckAllButton=function(config){
 
-	var button = document.createElement("button");
-	button.setAttribute("type","button");
+	var button = document.createElement("abbr");
+	button.setAttribute("title","Marcar todo");
 	button.classList.add(CHECK_ICON_CLASS);
-
-	button.style.backgroundColor="transparent";
-	button.style.borderStyle="none";
+	button.style.textDecoration="none";
 
 	if(config.check)
 		button.addEventListener("click",config.check,true);
@@ -36,12 +34,10 @@ ProductsInput.prototype.createCheckAllButton=function(config){
 
 ProductsInput.prototype.createUncheckAllButton=function(config){
 
-	var button = document.createElement("button");
-	button.setAttribute("type","button");
+	var button = document.createElement("abbr");
+	button.setAttribute("title","Desmarcar todo");
 	button.classList.add(UNCHECK_ICON_CLASS);
-
-	button.style.backgroundColor="transparent";
-	button.style.borderStyle="none";
+	button.style.textDecoration="none";
 
 	if(config.uncheck)
 		button.addEventListener("click",config.uncheck,true);
@@ -53,12 +49,10 @@ ProductsInput.prototype.createUncheckAllButton=function(config){
 
 ProductsInput.prototype.createRemoveButton=function(config){
 
-	var button = document.createElement("button");
-	button.setAttribute("type","button");
+	var button = document.createElement("abbr");
+	button.setAttribute("title","Eliminar productos");
 	button.classList.add(REMOVE_ICON_CLASS);
-
-	button.style.backgroundColor="transparent";
-	button.style.borderStyle="none";
+	button.style.textDecoration="none";
 
 	if(config.remove)
 		button.addEventListener("click",config.remove,true);
@@ -129,12 +123,10 @@ ProductsInput.prototype.createNameInput=function(config){
 
 ProductsInput.prototype.createAddButton=function(config){
 
-	var button = document.createElement("button");
-	button.setAttribute("type","button");
+	var button = document.createElement("abbr");
+	button.setAttribute("title","Agregar producto");
 	button.classList.add(ADD_ICON_CLASS);
-
-	button.style.backgroundColor="transparent";
-	button.style.borderStyle="none";
+	button.style.textDecoration="none";
 
 	if(config.add)
 		button.addEventListener("click",config.add,true);

@@ -14,11 +14,11 @@ function CategoryInput(config){
 }
 
 CategoryInput.prototype.createReorderButton=function(config){
-	var button = document.createElement("button");
-	button.setAttribute("type","button");
+
+	var button = document.createElement("abbr");
+	button.setAttribute("title","Reordenar");
 	button.classList.add(REFRESH_ICON_CLASS);
-	button.style.backgroundColor="transparent";
-	button.style.borderStyle="none";
+	button.style.textDecoration="none";
 
 	if(config.reorder)
 		button.addEventListener("click",config.reorder,true);
@@ -29,11 +29,11 @@ CategoryInput.prototype.createReorderButton=function(config){
 }
 
 CategoryInput.prototype.createAddColorButton=function(){
-	var button = document.createElement("button");
-	button.setAttribute("type","button");
+
+	var button = document.createElement("abbr");
+	button.setAttribute("title","Agregar color");
 	button.classList.add(ADD_ICON_CLASS);
-	button.style.backgroundColor="transparent";
-	button.style.borderStyle="none";
+	button.style.textDecoration="none";
 
 	button.addEventListener("click",this.addNewColor.bind(this),true);
 

@@ -26,6 +26,7 @@ BuyChartContainer.prototype.createTitle=function(){
 
 	var title = document.createElement("h1");
 	title.style.display = "inline-block";
+	title.style.marginLeft = "1.5rem";
 	title.innerHTML=TITLE_TEXT;
 
 	this.title=title;

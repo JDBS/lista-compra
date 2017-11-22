@@ -20,6 +20,10 @@
 #chart-container .add-icon, 
 #chart-container .chart-logo{
 	@extend %glyph-icon;
+	display:inline-block;  
+	width:24px;
+  	height: 24px;
+  	text-align:center;
 }
 
 #chart-container .check-icon:before{
