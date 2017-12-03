@@ -99,6 +99,7 @@ CategoryInput.prototype.createColorInput=function(){
 	input.setAttribute("type","color");
 	input.setAttribute("disabled","disabled");
 	input.setAttribute("aria-label","color");
+	input.setAttribute("role","seleccion");
 	input.setAttribute("title","Establecer Color");
 	input.value=this.getRandomHexColor();
 
@@ -122,7 +123,6 @@ CategoryInput.prototype.createColorInput=function(){
 CategoryInput.prototype.createContainer=function(){
 	var container = document.createElement	("div");
 	container.classList.add("input-box");
-	input.setAttribute("disabled","disabled");
 	container.style.display = "inline-block";
 	container.style.verticalAlign="top";
 
