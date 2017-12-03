@@ -146,6 +146,8 @@ ProductsInput.prototype.createAddButton=function(config){
 ProductsInput.prototype.createContainer=function(){
 
 	var container = document.createElement	("div");
+	container.setAttribute("role","group");
+	container.setAttribute("aria-labelledby","groupLabel");
 	container.classList.add("input-box");
 
 	container.style.display = "inline-block";

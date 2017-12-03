@@ -122,6 +122,8 @@ CategoryInput.prototype.createColorInput=function(){
 CategoryInput.prototype.createContainer=function(){
 	var container = document.createElement	("div");
 	container.classList.add("input-box");
+	container.setAttribute("role","group");
+	container.setAttribute("aria-labelledby","groupLabel");
 	container.style.display = "inline-block";
 	container.style.verticalAlign="top";
 
