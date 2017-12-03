@@ -111,6 +111,7 @@ ProductsInput.prototype.createNameInput=function(config){
 	var input = document.createElement("input");
 	input.setAttribute("type","text");
 	input.setAttribute("placeholder","Producto");
+	input.setAttribute("size","17");
 	input.setAttribute("maxlength","30");
 
 	if(config.add)

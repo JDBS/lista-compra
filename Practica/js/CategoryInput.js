@@ -122,7 +122,6 @@ CategoryInput.prototype.createContainer=function(){
 	container.classList.add("input-box");
 	container.style.display = "inline-block";
 	container.style.verticalAlign="top";
-	container.style.marginLeft="60px";
 
 	this.container=container;
 
