@@ -98,7 +98,7 @@ CategoryInput.prototype.createColorInput=function(){
 	var input = document.createElement("input");
 	input.setAttribute("type","color");
 	input.setAttribute("disabled","disabled");
-	input.setAttribute("aria-label","color);
+	input.setAttribute("aria-label","color");
 	input.setAttribute("title","Establecer Color");
 	input.value=this.getRandomHexColor();
 
