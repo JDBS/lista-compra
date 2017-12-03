@@ -123,7 +123,6 @@ CategoryInput.prototype.createContainer=function(){
 	var container = document.createElement	("div");
 	container.classList.add("input-box");
 	input.setAttribute("disabled","disabled");
-	role="group" aria-labelledby="groupLabel"
 	container.style.display = "inline-block";
 	container.style.verticalAlign="top";
 
