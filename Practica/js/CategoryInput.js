@@ -32,7 +32,6 @@ CategoryInput.prototype.createAddColorButton=function(){
 
 	var button = document.createElement("abbr");
 	button.setAttribute("title","Agregar color");
-	input.setAttribute("aria-label","agregar color");
 	button.classList.add(ADD_ICON_CLASS);
 	button.style.textDecoration="none";
 
@@ -99,6 +98,8 @@ CategoryInput.prototype.createColorInput=function(){
 	var input = document.createElement("input");
 	input.setAttribute("type","color");
 	input.setAttribute("disabled","disabled");
+	input.setAttribute("aria-label","establecer color");
+	input.setAttribute("title","Establecer Color");
 	input.value=this.getRandomHexColor();
 
 	input.style.width=INPUT_WIDTH;
