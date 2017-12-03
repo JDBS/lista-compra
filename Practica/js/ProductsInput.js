@@ -146,7 +146,6 @@ ProductsInput.prototype.createAddButton=function(config){
 ProductsInput.prototype.createContainer=function(){
 
 	var container = document.createElement	("div");
-	container.setAttribute("role","form");
 	container.classList.add("input-box");
 
 	container.style.display = "inline-block";

@@ -68,6 +68,7 @@ BuyChartContainer.prototype.createBuyList=function(){
 
 BuyChartContainer.prototype.createContainer=function(){
 	var container = document.createElement("div");
+	container.setAttribute("role","application");
 	container.id=CONTAINER_INPUT_ID;
 	container.style.display = "inline-block";
 	this.container=container;
