@@ -76,7 +76,6 @@ ProductsInput.prototype.createQuantityInput=function(config){
 	input.setAttribute("min","1");
 	input.setAttribute("max","1000");
 	input.setAttribute("maxlength","4");
-	input.setAttribute("aria-label","cantidadDelProducto");
 	input.setAttribute("title","Cantidad");
 
 	input.style.width="60px";
@@ -97,7 +96,6 @@ ProductsInput.prototype.createMeasureInput=function(config){
 	input.setAttribute("size","5");
 	input.setAttribute("placeholder","Ud Medida");
 	input.setAttribute("maxlength","6");
-	input.setAttribute("aria-label","unidadDelProducto");
 	input.setAttribute("title","Unidad de medida");
 
 	input.style.textAlign="center";
@@ -117,7 +115,6 @@ ProductsInput.prototype.createNameInput=function(config){
 	input.setAttribute("placeholder","Producto");
 	input.setAttribute("size","17");
 	input.setAttribute("maxlength","30");
-	input.setAttribute("aria-label","nombreDelProducto");
 	input.setAttribute("title","Nombre del Producto");
 
 	if(config.add)
