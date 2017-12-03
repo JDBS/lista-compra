@@ -38,7 +38,7 @@ function runApp(event){
 
 //Inicia la aplicación
 function startApp(){
-	loadScripts();
+	//loadScripts();
 	document.addEventListener("readystatechange", runApp ,false);
 }
 
