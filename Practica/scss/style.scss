@@ -92,6 +92,10 @@
 	border-radius:4px;
 }
 
+#chart-container input:focus{
+	outline: solid blue;
+}
+
 #chart-container .product p{
 	display:inline-block;
 	min-width:50px;
