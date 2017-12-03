@@ -25,6 +25,7 @@ BuyChartContainer.prototype.createTitle=function(){
 	const TITLE_TEXT="Lista de la compra";
 
 	var title = document.createElement("h1");
+	title.id = APPLICATION_TITLE_ID;
 	title.style.display = "inline-block";
 	title.style.marginLeft = "1.5rem";
 	title.innerHTML=TITLE_TEXT;
@@ -68,6 +69,8 @@ BuyChartContainer.prototype.createBuyList=function(){
 
 BuyChartContainer.prototype.createContainer=function(){
 	var container = document.createElement("div");
+	container.setAttribute("role","application");
+	container.setAttribute("arialabelledby",APPLICATION_TITLE_ID);
 	container.id=CONTAINER_INPUT_ID;
 	container.style.display = "inline-block";
 	this.container=container;
